@@ -1,16 +1,16 @@
 {
   "name": "@avinashcodelabs/mock-api-server",
   "version": "1.0.0",
-  "description": "Mocks the CURD REST API",
+  "description": "A package that lets frontend developers mock out backend APIs.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/UserName/package-name.git"
+    "url": "https://github.com/avinashcodelabs/mock-api-server.git"
   },
-  "homepage": "https://github.com/UserName/package-name",
+  "homepage": "https://github.com/avinashcodelabs/mock-api-server",
   "author": "Avinash C",
   "license": "MIT",
   "dependencies": {
