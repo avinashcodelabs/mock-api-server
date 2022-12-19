@@ -1,0 +1,19 @@
+{
+  "name": "@avinashcodelabs/mock-api-server",
+  "version": "1.0.0",
+  "description": "Mocks the CURD REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UserName/package-name.git"
+  },
+  "homepage": "https://github.com/UserName/package-name",
+  "author": "Avinash C",
+  "license": "MIT",
+  "dependencies": {
+    "miragejs": "^0.1.46"
+  }
+}
