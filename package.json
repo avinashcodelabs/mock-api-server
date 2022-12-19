@@ -1,6 +1,6 @@
 {
   "name": "@avinashcodelabs/mock-api-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package that lets frontend developers mock out backend APIs.",
   "main": "index.js",
   "scripts": {
