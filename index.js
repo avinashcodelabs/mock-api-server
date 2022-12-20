@@ -62,6 +62,24 @@ const startServer = ({ ignoreHosts = [], logging = false } = {}) => {
         return schema.products.find(request.params.id);
       });
 
+      this.post(
+        "/products",
+        (schema, request) => {
+          let attrs = JSON.parse(request.requestBody);
+          return schema.products.create(attrs);
+        },
+        { timing: 2000 }
+      );
+
+      this.put("/products/:id", (schema, request) => {
+        let attrs = JSON.parse(request.requestBody);
+        return schema.products.find(request.params.id).update(attrs);
+      });
+
+      this.delete("/products/:id", (schema, request) => {
+        return schema.products.find(request.params.id).destroy();
+      });
+
       this.passthrough();
       this.passthrough(...[...defaultHostsToIgnore, ...ignoreHosts]);
     },
