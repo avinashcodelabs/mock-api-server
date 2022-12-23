@@ -1,11 +1,21 @@
-import { Server, Model } from "miragejs";
+import { Server, Model, RestSerializer } from "miragejs";
 
 const startServer = ({ ignoreHosts = [], logging = false } = {}) => {
   const defaultHostsToIgnore = [
     "https://jsonplaceholder.typicode.com/**",
     "https://my-json-server.typicode.com/**",
   ];
+
+  const mockApplicationSerializer = RestSerializer.extend({
+    root: false,
+    embed: true,
+    include: [],
+  });
+
   let server = new Server({
+    serializers: {
+      application: mockApplicationSerializer,
+    },
     models: {
       product: Model,
     },
@@ -15,35 +25,35 @@ const startServer = ({ ignoreHosts = [], logging = false } = {}) => {
         name: "Shoes",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 1.05,
+        price: 10.5,
         imgUrl: "https://picsum.photos/id/21/300/200",
       });
       server.create("product", {
         name: "Phone",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 10.99,
+        price: 20.5,
         imgUrl: "https://picsum.photos/id/63/300/200",
       });
       server.create("product", {
         name: "MacBook",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 1199,
+        price: 30.5,
         imgUrl: "https://picsum.photos/id/48/300/200",
       });
       server.create("product", {
         name: "A Dress",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 14000,
+        price: 40.5,
         imgUrl: "https://picsum.photos/id/823/300/200",
       });
       server.create("product", {
         name: "Karvalo - The Book",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price: 150,
+        price: 50,
         imgUrl: "https://picsum.photos/id/464/300/200",
       });
     },
@@ -67,8 +77,8 @@ const startServer = ({ ignoreHosts = [], logging = false } = {}) => {
         (schema, request) => {
           let attrs = JSON.parse(request.requestBody);
           return schema.products.create(attrs);
-        },
-        { timing: 2000 }
+        }
+        // { timing: 2000 }
       );
 
       this.put("/products/:id", (schema, request) => {
