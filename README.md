@@ -124,3 +124,18 @@ function deleteProduct(id) {
 export { getProducts, getProduct, createProduct, updateProduct, deleteProduct };
 
 ```
+
+## Tech Stack
+
+Built with:
+
+* JavaScript
+* miragejs
+
+## Authors
+
+- [@avinashcodelabs](https://github.com/avinashcodelabs)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
