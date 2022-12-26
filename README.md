@@ -14,7 +14,7 @@ import { startServer } from "@avinashcodelabs/mock-api-server";
 startServer();
 ```
 
-### API usage
+## API usage
 
 ```js
 /**
